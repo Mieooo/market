@@ -61,11 +61,13 @@ def fetch_source(client: httpx.Client, source: dict) -> dict:
 
 def evidence_index(rows: list[dict], tag: str) -> dict:
     tagged = [row for row in rows if tag in row["tags"]]
-    publishers = {row["publisher"] for row in tagged}
-    types = {row["type"] for row in tagged}
-    direct = [row for row in tagged if row["strength"] == 3]
-    recruitment = [row for row in tagged if row["type"] == "招聘"]
     verified = [row for row in tagged if row.get("fetch_status") == "verified"]
+    # Only content-verified pages can affect the index. Blocked pages and
+    # JavaScript loading shells remain visible as leads but contribute zero.
+    publishers = {row["publisher"] for row in verified}
+    types = {row["type"] for row in verified}
+    direct = [row for row in verified if row["strength"] == 3]
+    recruitment = [row for row in verified if row["type"] == "招聘"]
     # Denominators are intentionally above the first-version sample size so a
     # topic cannot reach 100 merely because this small corpus mentions it often.
     components = {
