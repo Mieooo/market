@@ -1,0 +1,23 @@
+{
+  "run_id": "run_20260911T182028Z",
+  "generated_at": "2026-09-11T18:20:28.399959+00:00",
+  "method": "定向证据抽样；指数衡量证据覆盖，不代表市场份额",
+  "source_count": 25,
+  "publisher_count": 11,
+  "verified_url_count": 16,
+  "failed_url_count": 5,
+  "shell_only_count": 4,
+  "verification_status_counts": {
+    "verified": 16,
+    "shell_only": 4,
+    "blocked_or_failed": 5
+  },
+  "source_type_counts": {
+    "招聘": 5,
+    "生产实践": 12,
+    "评测研究": 4,
+    "产品路线": 2,
+    "行业调查": 1,
+    "一线分享": 1
+  }
+}
