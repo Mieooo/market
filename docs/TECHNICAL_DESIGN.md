@@ -42,7 +42,7 @@
 | UI 框架 | React + TypeScript | 页面、组件和交互状态 |
 | 构建工具 | Vite | 快速开发、静态构建和当前托管兼容 |
 | 路由 | React Router | 首页、问题详情、证据库等独立 URL |
-| 样式 | CSS Modules + 全局 Design Tokens | 保持视觉独立性，避免套模板感 |
+| 样式 | 分层原生 CSS + 全局 Design Tokens | MVP 以全局视觉系统和页面层覆盖快速验证设计，保持视觉独立性 |
 | 动效 | CSS Transition + Motion for React | 状态变化、列表重排和页面过渡 |
 | 图表 | Apache ECharts，按需导入 | 趋势线、构成图和时间分布 |
 | 数据校验 | TypeScript 类型 + Zod | Mock 与真实 API 的运行时契约校验 |
@@ -296,17 +296,17 @@ interface ProblemSummary {
 
 ### 7.3 色彩系统
 
-首版采用中性暗色为主、浅色内容面为辅：
+首版采用浅色研究画布为主、深色焦点模块为辅。参考 Vercel Observability 的留白、细网格和黑白对比，但不复制其布局或组件。总览、列表、筛选和图表使用白色或暖灰内容面；“每周判断”“作品集建议”等需要聚焦的模块使用近黑色背景：
 
 ```css
---canvas: #090b10;
---surface-1: #0f1219;
---surface-2: #151923;
+--canvas: #fafafa;
+--surface-1: #ffffff;
+--surface-2: #f5f5f3;
 --paper: #f5f3ee;
 --ink: #111318;
---text-primary: #f4f6f8;
---text-secondary: #9ba3b0;
---line: rgba(255, 255, 255, 0.10);
+--text-primary: #171717;
+--text-secondary: #666666;
+--line: rgba(0, 0, 0, 0.11);
 --accent: #8b7cff;
 --signal-cyan: #54d6d0;
 --signal-amber: #f2b563;
